@@ -2,7 +2,7 @@
 #define HOMESCREEN_H
 
 #include <QtGui/QWidget>
-#include <QtGui/QImage>
+#include <QTimer>
 
 namespace Ui
 {
@@ -17,10 +17,12 @@ public:
 	homescreen(QWidget *parent = 0);
 	~homescreen();
 
+	private slots:
+	void updateClock();
+
 private:
 	Ui::homescreen *ui;
-	QImage imgMusic;
-	QImage imgSettings;
+	QTimer tmrUpdateClock;
 
 };
 

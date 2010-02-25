@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'homescreen.h'
 **
-** Created: Wed Feb 24 19:12:21 2010
+** Created: Wed Feb 24 20:02:53 2010
 **      by: The Qt Meta Object Compiler version 61 (Qt 4.5.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,16 +23,19 @@ static const uint qt_meta_data_homescreen[] = {
        2,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       1,   12, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
+
+ // slots: signature, parameters, type, tag, flags
+      12,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_homescreen[] = {
-    "homescreen\0"
+    "homescreen\0\0updateClock()\0"
 };
 
 const QMetaObject homescreen::staticMetaObject = {
@@ -58,6 +61,13 @@ int homescreen::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: updateClock(); break;
+        default: ;
+        }
+        _id -= 1;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE
