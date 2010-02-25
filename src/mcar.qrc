@@ -3,5 +3,10 @@
         <file>resources/images/Gears.svg</file>
         <file>resources/images/Musical_notes.svg</file>
         <file>resources/images/Nuvola_music.svg</file>
+        <file>resources/images/CD_icon.svg</file>
+        <file>resources/images/button_back.png</file>
+        <file>resources/images/button_forward.png</file>
+        <file>resources/images/button_pause.png</file>
+        <file>resources/images/button_play.png</file>
     </qresource>
 </RCC>
