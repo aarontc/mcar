@@ -15,7 +15,13 @@ QT += network \
 TARGET = mcar
 TEMPLATE = app
 SOURCES += main.cpp \
-    homescreen.cpp
-HEADERS += homescreen.h
-FORMS += homescreen.ui
+    homescreen.cpp \
+    musicscreen.cpp \
+    musiclayouta.cpp
+HEADERS += homescreen.h \
+    musicscreen.h \
+    musiclayouta.h
+FORMS += homescreen.ui \
+    musicscreen.ui \
+    musiclayouta.ui
 RESOURCES += mcar.qrc
