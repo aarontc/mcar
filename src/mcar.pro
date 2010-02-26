@@ -16,16 +16,16 @@ TARGET = mcar
 TEMPLATE = app
 SOURCES += main.cpp \
     homescreen.cpp \
-    musicscreen.cpp \
     musiclayouta.cpp \
     song.cpp \
-    playlist.cpp
+    playlist.cpp \
+    musicscreen.cpp
 HEADERS += homescreen.h \
-    musicscreen.h \
     musiclayouta.h \
     song.h \
-    playlist.h
+    playlist.h \
+    musicscreen.h
 FORMS += homescreen.ui \
-    musicscreen.ui \
-    musiclayouta.ui
+    musiclayouta.ui \
+    musicscreen.ui
 RESOURCES += mcar.qrc
