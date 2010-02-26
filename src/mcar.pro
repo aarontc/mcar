@@ -17,10 +17,14 @@ TEMPLATE = app
 SOURCES += main.cpp \
     homescreen.cpp \
     musicscreen.cpp \
-    musiclayouta.cpp
+    musiclayouta.cpp \
+    song.cpp \
+    playlist.cpp
 HEADERS += homescreen.h \
     musicscreen.h \
-    musiclayouta.h
+    musiclayouta.h \
+    song.h \
+    playlist.h
 FORMS += homescreen.ui \
     musicscreen.ui \
     musiclayouta.ui

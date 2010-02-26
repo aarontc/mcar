@@ -1,3 +1,4 @@
 src/Makefile
 src/mcar.pro.user
 src/mcar
+src/ui_*.h
