@@ -3,8 +3,8 @@
 
 #include <QDateTime>
 
-homescreen::homescreen(QWidget *parent)
-	: QWidget(parent), ui(new Ui::homescreen)
+HomeScreen::HomeScreen(QWidget *parent)
+	: QWidget(parent), ui(new Ui::HomeScreen)
 {
 	ui->setupUi(this);
 	ui->lblTime->setText("");
@@ -13,11 +13,11 @@ homescreen::homescreen(QWidget *parent)
 
 }
 
-homescreen::~homescreen()
+HomeScreen::~HomeScreen()
 {
 	delete ui;
 }
 
-void homescreen::updateClock(){
+void HomeScreen::updateClock(){
 	ui->lblTime->setText(QDateTime::currentDateTime().toString("ddd MMM d, yyyy   hh:mm:ss"));
 }

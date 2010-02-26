@@ -6,22 +6,22 @@
 
 namespace Ui
 {
-	class homescreen;
+	class HomeScreen;
 }
 
-class homescreen : public QWidget
+class HomeScreen : public QWidget
 {
 	Q_OBJECT
 
 public:
-	homescreen(QWidget *parent = 0);
-	~homescreen();
+	HomeScreen(QWidget *parent = 0);
+	~HomeScreen();
 
 	private slots:
 	void updateClock();
 
 private:
-	Ui::homescreen *ui;
+	Ui::HomeScreen *ui;
 	QTimer tmrUpdateClock;
 
 };
