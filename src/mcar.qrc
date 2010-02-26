@@ -8,5 +8,7 @@
         <file>resources/images/button_forward.png</file>
         <file>resources/images/button_pause.png</file>
         <file>resources/images/button_play.png</file>
+        <file>resources/images/Video-icon.svg</file>
+        <file>resources/images/World_Map_Icon.svg</file>
     </qresource>
 </RCC>
