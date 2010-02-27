@@ -11,19 +11,16 @@ class Playlist : public QObject
 public:
 	Playlist();
 
-	void equeueSong();
-	void getSong();
-	void shuffle();
+	void addItem(Song * item);
 	void clear();
-
-
-
-
+	Song * getCurrentItem(int offset=0);
+	Song * getNextItem();
+	void shuffle();
 
 
 private:
 	QVector<Song *> m_playlist;
-	int m_currentsong; // item in the playlist we are currently playing
+	int m_currentitem; // item in the playlist we are currently playing
 
 };
 

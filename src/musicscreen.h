@@ -2,22 +2,19 @@
 #define MUSICSCREEN_H
 
 #include <QtGui/QWidget>
-
-namespace Ui {
-    class MusicScreen;
-}
+#include "musicplayer.h"
 
 class MusicScreen : public QWidget {
-    Q_OBJECT
+	Q_OBJECT
 public:
-    MusicScreen(QWidget *parent = 0);
-    ~MusicScreen();
+	MusicScreen(QWidget *parent = 0);
+	~MusicScreen();
 
 protected:
-    void changeEvent(QEvent *e);
 
 private:
-    Ui::MusicScreen *m_ui;
+
+	MusicPlayer * m_musicplayer;
 };
 
 #endif // MUSICSCREEN_H

@@ -1,26 +1,13 @@
 #include "musicscreen.h"
-#include "ui_musicscreen.h"
 
 MusicScreen::MusicScreen(QWidget *parent) :
-    QWidget(parent),
-    m_ui(new Ui::MusicScreen)
+	QWidget(parent)
 {
-    m_ui->setupUi(this);
+	m_musicplayer = new MusicPlayer();
 }
 
 MusicScreen::~MusicScreen()
 {
-    delete m_ui;
+	delete m_musicplayer;
 }
 
-void MusicScreen::changeEvent(QEvent *e)
-{
-    QWidget::changeEvent(e);
-    switch (e->type()) {
-    case QEvent::LanguageChange:
-        m_ui->retranslateUi(this);
-        break;
-    default:
-        break;
-    }
-}

@@ -19,13 +19,17 @@ SOURCES += main.cpp \
     musiclayouta.cpp \
     song.cpp \
     playlist.cpp \
-    musicscreen.cpp
+    musicscreen.cpp \
+    musicplayer.cpp \
+    settings.cpp
 HEADERS += homescreen.h \
     musiclayouta.h \
     song.h \
     playlist.h \
-    musicscreen.h
+    musicscreen.h \
+    musicplayer.h \
+    settings.h \
+    database.h
 FORMS += homescreen.ui \
-    musiclayouta.ui \
-    musicscreen.ui
+    musiclayouta.ui
 RESOURCES += mcar.qrc
