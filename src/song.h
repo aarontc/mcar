@@ -16,7 +16,6 @@ class Song : public QObject
 {
 
 public:
-	Song();
 	Song(quint64 songID);
 
 	QString artist();

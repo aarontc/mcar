@@ -18,7 +18,7 @@ void Playlist::clear()
 
 Song * Playlist::getCurrentItem(int offset) {
 	if (m_currentitem + offset >= 0) {
-		if (m_currentitem + offset > m_playlist.size()) {
+		if (m_currentitem + offset >= m_playlist.size()) {
 			return 0;
 		} else {
 			return m_playlist.at(m_currentitem + offset);
@@ -30,12 +30,16 @@ Song * Playlist::getCurrentItem(int offset) {
 
 // Returns the next song in the playlist and increments our currentitem count
 Song * Playlist::getNextItem() {
-	if (m_currentitem + 1 > m_playlist.size()) {
+	if (m_currentitem + 1 >= m_playlist.size()) {
 		m_currentitem = -1;
 		return 0;
 	} else {
 		return m_playlist.at(++m_currentitem);
 	}
+}
+
+void Playlist::restart() {
+	m_currentitem = -1;
 }
 
 void Playlist::shuffle() {

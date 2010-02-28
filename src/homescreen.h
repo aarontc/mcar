@@ -19,7 +19,6 @@ public:
 
 signals:
 	void selectedMode(QString mode);
-	void test(int value);
 
 private slots:
 	void on_btnMusic_clicked();

@@ -1,11 +1,16 @@
 #ifndef MUSICPLAYER_H
 #define MUSICPLAYER_H
 
+#include <QThread>
 #include <QObject>
 #include "playlist.h"
 
-class MusicPlayer : public QObject
-{
+// phonon
+#include <audiooutput.h>
+#include <mediaobject.h>
+
+class MusicPlayer : public QThread {
+	Q_OBJECT
 
 public:
 	MusicPlayer();
@@ -20,14 +25,28 @@ public:
 		Stopped
 	};
 
+signals:
+	void tick(qint64 time);
+
+public slots:
 	void clearPlaylist();
 	void shufflePlaylist();
-	void play();
 	void pause();
+	void play();
 	void stop();
 
-	private:
+protected:
+	void run();
+
+private:
 	enum State m_state;
+	enum State m_state_request;
+	Phonon::MediaObject * m_mediaObject;
+	Phonon::AudioOutput * m_audioOutput;
+
+private slots:
+	void mediaObjectTick(qint64 time);
+	void enqueueNextSource();
 
 };
 

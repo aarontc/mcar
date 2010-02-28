@@ -6,6 +6,8 @@
 
 int main(int argc, char *argv[]) {
 	QApplication app(argc, argv);
+	app.setApplicationName("mcar");
+	app.setApplicationVersion("0.01");
 
 	Settings s;
 	QSqlDatabase db(db_createConnection

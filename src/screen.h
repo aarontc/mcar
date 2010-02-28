@@ -18,12 +18,11 @@ public:
 
 public slots:
 	void selectMode(QString mode);
-	void test(int value);
 
 
 private:
-	HomeScreen * m_hs;
-	MusicScreen * m_ms;
+	HomeScreen * m_homescreen;
+	MusicScreen * m_musicscreen;
 
 };
 

@@ -1,40 +1,45 @@
 #include "screen.h"
 
 Screen::Screen(QWidget *parent) :
-		QWidget(parent), m_hs(0), m_ms(0)
+		QWidget(parent), m_homescreen(0), m_musicscreen(0)
 {
-	m_hs = new HomeScreen(this);
-	connect(m_hs, SIGNAL(selectedMode(QString)), this, SLOT(selectMode(QString)));
-	connect(m_hs, SIGNAL(test(int)), this, SLOT(test(int)));
+	m_homescreen = new HomeScreen(this);
+	connect(m_homescreen, SIGNAL(selectedMode(QString)), this, SLOT(selectMode(QString)));
 
-	m_hs->move(10,10);
-	m_hs->show();
+	m_homescreen->move(0, 0);
+	m_homescreen->show();
+
+	QString style("background: #AAAAAA;");
+
+	this->setStyleSheet(style);
 }
 
 Screen::~Screen() {
-	delete m_hs;
-	delete m_ms;
+	delete m_homescreen;
+	delete m_musicscreen;
 }
 
 void Screen::selectMode(QString mode) {
 	qDebug() << "Switching to mode:" << mode;
 
-	if (mode == "Music") {
 
-		if ( m_ms == 0 )
-			m_ms = new MusicScreen(this);
-		m_hs->hide();
-		m_ms->move(0, 0);
-		m_ms->show();
+	if (mode == "Home") {
+
+		m_musicscreen->hide();
+		m_homescreen->show();
+
+	} else 	if (mode == "Music") {
+
+		if ( m_musicscreen == 0 )
+			m_musicscreen = new MusicScreen(this);
+		m_homescreen->hide();
+		m_musicscreen->move(0, 0);
+		m_musicscreen->show();
 
 	} else if (mode == "Settings" ) {
 
-		m_hs->hide();
+		m_homescreen->hide();
 
 	}
 
-}
-
-void Screen::test(int value) {
-	qDebug() << "test" << value;
 }

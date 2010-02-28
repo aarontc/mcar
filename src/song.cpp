@@ -1,9 +1,5 @@
 #include "song.h"
 
-Song::Song()
-{
-}
-
 Song::Song(quint64 songID)
 {
 	QSqlQuery query;
