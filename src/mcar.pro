@@ -21,7 +21,9 @@ SOURCES += main.cpp \
     playlist.cpp \
     musicscreen.cpp \
     musicplayer.cpp \
-    settings.cpp
+    settings.cpp \
+    libraryscanner.cpp \
+    database.cpp
 HEADERS += homescreen.h \
     musiclayouta.h \
     song.h \
@@ -29,7 +31,10 @@ HEADERS += homescreen.h \
     musicscreen.h \
     musicplayer.h \
     settings.h \
-    database.h
+    database.h \
+    libraryscanner.h
 FORMS += homescreen.ui \
     musiclayouta.ui
 RESOURCES += mcar.qrc
+INCLUDEPATH += /usr/include/taglib
+LIBS += -ltag
