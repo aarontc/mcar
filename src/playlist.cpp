@@ -31,10 +31,19 @@ Song * Playlist::getCurrentItem(int offset) {
 // Returns the next song in the playlist and increments our currentitem count
 Song * Playlist::getNextItem() {
 	if (m_currentitem + 1 >= m_playlist.size()) {
-		m_currentitem = -1;
+		restart();
 		return 0;
 	} else {
 		return m_playlist.at(++m_currentitem);
+	}
+}
+
+Song * Playlist::getPreviousItem() {
+	if (m_currentitem - 1 < 0) {
+		restart();
+		return 0;
+	} else {
+		return m_playlist.at(--m_currentitem);
 	}
 }
 

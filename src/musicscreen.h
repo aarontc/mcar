@@ -11,6 +11,7 @@ public:
 	MusicScreen(QWidget *parent = 0);
 	~MusicScreen();
 
+
 protected:
 
 private:

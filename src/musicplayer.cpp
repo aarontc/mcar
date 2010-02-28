@@ -31,10 +31,13 @@ void MusicPlayer::run() {
 				if (m_state == Paused) {
 					m_state = Playing;
 					m_mediaObject->play();
-				} else if (m_state == Idle || m_state == Stopped) {
+				} else if (m_state == Idle) {
 					m_state = Playing;
-					playlist.restart();
+					m_mediaObject->setCurrentSource(Phonon::MediaSource(playlist.getNextItem()->filePath()));
+					m_mediaObject->play();
+				} else if (m_state == Stopped) {
 					enqueueNextSource();
+					m_state = Playing;
 					m_mediaObject->play();
 				}
 				break;
@@ -69,12 +72,45 @@ void MusicPlayer::clearPlaylist() {
 
 void MusicPlayer::enqueueNextSource() {
 	Song * next = playlist.getNextItem();
-	if (next != 0)
+	if (next) {
 		m_mediaObject->enqueue(Phonon::MediaSource(next->filePath()));
+	} else {
+		m_mediaObject->setQueue(QList<Phonon::MediaSource>());
+		m_state_request = Idle;
+		m_state = Idle;
+	}
+}
+
+enum MusicPlayer::State MusicPlayer::getState() {
+	return m_state;
 }
 
 void MusicPlayer::pause() {
 	m_state_request = Paused;
+}
+
+void MusicPlayer::togglePause() {
+	if (m_state == Playing) {
+		pause();
+	} else if (m_state == Paused || m_state == Idle || m_state == Stopped) {
+		play();
+	}
+}
+
+void MusicPlayer::playPrevious() {
+	Song * previous = playlist.getCurrentItem(-1);
+	if (previous) {
+		m_mediaObject->setCurrentSource(Phonon::MediaSource(playlist.getPreviousItem()->filePath()));
+		m_mediaObject->play();
+	}
+}
+
+void MusicPlayer::playNext() {
+	Song * next = playlist.getCurrentItem(1);
+	if (next) {
+		m_mediaObject->setCurrentSource(Phonon::MediaSource(playlist.getNextItem()->filePath()));
+		m_mediaObject->play();
+	}
 }
 
 void MusicPlayer::play() {

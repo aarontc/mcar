@@ -25,15 +25,20 @@ public:
 		Stopped
 	};
 
+	enum State getState();
+
 signals:
 	void tick(qint64 time);
 
 public slots:
 	void clearPlaylist();
-	void shufflePlaylist();
+	void playNext();
 	void pause();
+	void playPrevious();
 	void play();
+	void shufflePlaylist();
 	void stop();
+	void togglePause();
 
 protected:
 	void run();

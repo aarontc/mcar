@@ -15,6 +15,7 @@ public:
 	void clear();
 	Song * getCurrentItem(int offset=0);
 	Song * getNextItem();
+	Song * getPreviousItem();
 	void restart();
 	void shuffle();
 
