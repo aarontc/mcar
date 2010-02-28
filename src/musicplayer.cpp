@@ -3,5 +3,5 @@
 MusicPlayer::MusicPlayer()
 		: m_state(Initializing)
 {
-	//playlist.addItem(
+	playlist.addItem(new Song(109));
 }

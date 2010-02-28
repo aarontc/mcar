@@ -1,7 +1,10 @@
 #include "homescreen.h"
 #include "ui_homescreen.h"
 
+#include "musicscreen.h"
+
 #include <QDateTime>
+#include <QDebug>
 
 HomeScreen::HomeScreen(QWidget *parent)
 	: QWidget(parent), ui(new Ui::HomeScreen)
@@ -13,11 +16,15 @@ HomeScreen::HomeScreen(QWidget *parent)
 
 }
 
-HomeScreen::~HomeScreen()
-{
+HomeScreen::~HomeScreen() {
 	delete ui;
 }
 
 void HomeScreen::updateClock(){
 	ui->lblTime->setText(QDateTime::currentDateTime().toString("ddd MMM d, yyyy   hh:mm:ss"));
+}
+
+void HomeScreen::on_btnMusic_clicked() {
+	qDebug() << "btnMusic_clicked()";
+	emit selectedMode(QString("Music"));
 }

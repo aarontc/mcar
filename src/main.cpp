@@ -1,5 +1,5 @@
 #include <QtGui/QApplication>
-#include "homescreen.h"
+#include "screen.h"
 #include "settings.h"
 #include "database.h"
 #include "libraryscanner.h"
@@ -21,9 +21,9 @@ int main(int argc, char *argv[]) {
 	LibraryScanner libscanner(db);
 	libscanner.start();
 
-	HomeScreen w;
-	w.showFullScreen();
-	//w.showNormal();
+	Screen w;
+	//w.showFullScreen();
+	w.showNormal();
 
 	return app.exec();
 }

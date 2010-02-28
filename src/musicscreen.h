@@ -3,6 +3,7 @@
 
 #include <QtGui/QWidget>
 #include "musicplayer.h"
+#include "musiclayouta.h"
 
 class MusicScreen : public QWidget {
 	Q_OBJECT
@@ -15,6 +16,7 @@ protected:
 private:
 
 	MusicPlayer * m_musicplayer;
+	QWidget * m_musiclayout;
 };
 
 #endif // MUSICSCREEN_H

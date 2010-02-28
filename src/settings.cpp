@@ -42,24 +42,7 @@ bool Settings::saveXMLFile(QString fileName) {
 }
 
 bool Settings::loadXMLFile(QString fileName) {
-	QMessageBox mb;
-	QFile file(fileName);
-	if (!file.open(QIODevice::ReadOnly)) {
-		mb.setText("unable to open settings file");
-		mb.exec();
-	} else {
-		if (!m_domdoc->setContent(&file)) {
-			mb.setText("unable to parse settings file");
-			mb.exec();
-		}
-
-//QDomElement root = doc.documentElement();
-//if( root.tagName() != "adbook" )
-//  return -3;
-
-
-		file.close();
-	}
+	return true;
 }
 
 QString Settings::getStringValue(QString value) {

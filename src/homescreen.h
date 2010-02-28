@@ -9,16 +9,22 @@ namespace Ui
 	class HomeScreen;
 }
 
-class HomeScreen : public QWidget
-{
+class HomeScreen : public QWidget {
 	Q_OBJECT
 
 public:
 	HomeScreen(QWidget *parent = 0);
 	~HomeScreen();
 
-	private slots:
+
+signals:
+	void selectedMode(QString mode);
+	void test(int value);
+
+private slots:
+	void on_btnMusic_clicked();
 	void updateClock();
+
 
 private:
 	Ui::HomeScreen *ui;

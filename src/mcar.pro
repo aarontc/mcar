@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     musicplayer.cpp \
     settings.cpp \
     libraryscanner.cpp \
-    database.cpp
+    database.cpp \
+    screen.cpp
 HEADERS += homescreen.h \
     musiclayouta.h \
     song.h \
@@ -32,7 +33,8 @@ HEADERS += homescreen.h \
     musicplayer.h \
     settings.h \
     database.h \
-    libraryscanner.h
+    libraryscanner.h \
+    screen.h
 FORMS += homescreen.ui \
     musiclayouta.ui
 RESOURCES += mcar.qrc

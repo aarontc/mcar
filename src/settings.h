@@ -6,8 +6,8 @@
 #include <QFile>
 
 
-class Settings : public QObject
-{
+class Settings : public QObject {
+
 public:
 	Settings();
 	~Settings();
