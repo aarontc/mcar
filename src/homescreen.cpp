@@ -25,6 +25,5 @@ void HomeScreen::updateClock(){
 }
 
 void HomeScreen::on_btnMusic_clicked() {
-	qDebug() << "btnMusic_clicked()";
-	emit selectedMode(QString("Music"));
+	emit requestMode(QString("Music"));
 }

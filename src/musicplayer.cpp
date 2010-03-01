@@ -4,7 +4,6 @@ MusicPlayer::MusicPlayer() :
 		m_state(Initializing),
 		m_state_request(Idle)
 {
-	//playlist.addItem(new Song(109));
 	m_mediaObject = new Phonon::MediaObject(this);
 	m_audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
 	Phonon::createPath(m_mediaObject, m_audioOutput);
@@ -13,7 +12,13 @@ MusicPlayer::MusicPlayer() :
 	connect(m_mediaObject, SIGNAL(tick(qint64)), this, SLOT(mediaObjectTick(qint64)));
 	connect(m_mediaObject, SIGNAL(aboutToFinish()), this, SLOT(enqueueNextSource()));
 
+
 	m_state = MusicPlayer::Idle;
+}
+
+MusicPlayer::~MusicPlayer() {
+	delete m_audioOutput;
+	delete m_mediaObject;
 }
 
 void MusicPlayer::run() {
@@ -32,9 +37,12 @@ void MusicPlayer::run() {
 					m_state = Playing;
 					m_mediaObject->play();
 				} else if (m_state == Idle) {
-					m_state = Playing;
-					m_mediaObject->setCurrentSource(Phonon::MediaSource(playlist.getNextItem()->filePath()));
-					m_mediaObject->play();
+					Song * n = playlist.getNextItem();
+					if (n) {
+						m_state = Playing;
+						m_mediaObject->setCurrentSource(Phonon::MediaSource(n->filePath()));
+						m_mediaObject->play();
+					}
 				} else if (m_state == Stopped) {
 					enqueueNextSource();
 					m_state = Playing;

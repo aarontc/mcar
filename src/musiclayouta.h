@@ -27,6 +27,7 @@ signals:
 	void next();
 	void previous();
 	void playPause();
+	void requestMode(QString mode);
 
 
 
@@ -39,6 +40,8 @@ private:
 	QTimer * m_uitimer;
 
 private slots:
+	void on_btnPlaylist_clicked();
+ void on_btnBack_clicked();
 	void uitimer();
 
 private slots:

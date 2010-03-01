@@ -18,7 +18,7 @@ public:
 
 
 signals:
-	void selectedMode(QString mode);
+	void requestMode(QString mode);
 
 private slots:
 	void on_btnMusic_clicked();

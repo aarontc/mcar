@@ -14,6 +14,7 @@ class MusicPlayer : public QThread {
 
 public:
 	MusicPlayer();
+	~MusicPlayer();
 
 	Playlist playlist;
 

@@ -2,11 +2,13 @@
 #define SCREEN_H
 
 #include <QtGui/QWidget>
+#include <QVector>
 #include <QDebug>
 
 
 #include "homescreen.h"
 #include "musicscreen.h"
+#include "playlistscreen.h"
 
 
 class Screen : public QWidget {
@@ -17,12 +19,16 @@ public:
 	~Screen();
 
 public slots:
-	void selectMode(QString mode);
+	void setMode(QString mode);
+
 
 
 private:
 	HomeScreen * m_homescreen;
 	MusicScreen * m_musicscreen;
+	PlaylistScreen * m_playlistscreen;
+
+	QVector<QString> m_modehistory;
 
 };
 

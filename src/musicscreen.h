@@ -11,6 +11,11 @@ public:
 	MusicScreen(QWidget *parent = 0);
 	~MusicScreen();
 
+signals:
+	void requestMode(QString mode);
+
+public slots:
+	void setMode(QString mode);
 
 protected:
 

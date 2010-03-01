@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>images/Gears.svg</file>
+        <file>images/Musical_notes.svg</file>
+        <file>images/Nuvola_music.svg</file>
+        <file>images/CD_icon.svg</file>
+        <file>images/button_back.png</file>
+        <file>images/button_forward.png</file>
+        <file>images/button_pause.png</file>
+        <file>images/button_play.png</file>
+        <file>images/Video-icon.svg</file>
+        <file>images/World_Map_Icon.svg</file>
+        <file>images/back-small.svg</file>
+        <file>images/High-contrast-playlist.svg</file>
+        <file>images/hotsync-2.0.svg</file>
+        <file>images/hotsync.svg</file>
+        <file>images/hotsync_busy.svg</file>
+        <file>images/trashcan_empty-2.1.svg</file>
+        <file>images/Shuffle_icon.svg</file>
+        <file>images/Gnome-media-playlist-repeat.svg</file>
+        <file>images/edit_add_nobg.svg</file>
+    </qresource>
+</RCC>

@@ -9,8 +9,8 @@ MusicLayoutA::MusicLayoutA(MusicPlayer * musicplayer, QWidget *parent) :
 		QWidget(parent),
 		m_ui(new Ui::MusicLayoutA),
 		m_musicplayer(musicplayer),
-		m_action_play(QIcon(":/images/resources/images/button_play.png"), QString("Play"), this),
-		m_action_pause(QIcon(":/images/resources/images/button_pause.png"), QString("Pause"), this),
+		m_action_play(QIcon(":/images/button_play.png"), QString("Play"), this),
+		m_action_pause(QIcon(":/images/button_pause.png"), QString("Pause"), this),
 		m_uitimer(new QTimer(this))
 {
 	m_ui->setupUi(this);
@@ -19,6 +19,7 @@ MusicLayoutA::MusicLayoutA(MusicPlayer * musicplayer, QWidget *parent) :
 }
 
 MusicLayoutA::~MusicLayoutA() {
+	delete m_uitimer;
 	delete m_ui;
 }
 
@@ -107,7 +108,7 @@ void MusicLayoutA::updateUI(qint64 time) {
 	}
 
 
-	if (m_musicplayer->playlist.getCurrentItem(1) != n1) {
+//	if (m_musicplayer->playlist.getCurrentItem(1) != n1) {
 		n1 = m_musicplayer->playlist.getCurrentItem(1);
 		n2 = m_musicplayer->playlist.getCurrentItem(2);
 		n3 = m_musicplayer->playlist.getCurrentItem(3);
@@ -129,7 +130,7 @@ void MusicLayoutA::updateUI(qint64 time) {
 			m_ui->lblUpcoming2->setText("");
 
 
-	}
+//	}
 }
 
 void MusicLayoutA::tick(qint64 time) {
@@ -150,4 +151,12 @@ void MusicLayoutA::on_btnPlayPause_clicked() {
 
 void MusicLayoutA::on_btnPrevious_clicked() {
 	emit previous();
+}
+
+void MusicLayoutA::on_btnBack_clicked() {
+	emit requestMode(QString("Previous"));
+}
+
+void MusicLayoutA::on_btnPlaylist_clicked() {
+	emit requestMode(QString("Playlist"));
 }

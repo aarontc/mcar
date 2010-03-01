@@ -24,7 +24,9 @@ SOURCES += main.cpp \
 	settings.cpp \
 	libraryscanner.cpp \
 	database.cpp \
-	screen.cpp
+	screen.cpp \
+	playlistscreen.cpp \
+onscreenkeyboard.cpp
 HEADERS += homescreen.h \
 	musiclayouta.h \
 	song.h \
@@ -34,9 +36,14 @@ HEADERS += homescreen.h \
 	settings.h \
 	database.h \
 	libraryscanner.h \
-	screen.h
+	screen.h \
+	playlistscreen.h \
+onscreenkeyboard.h
 FORMS += homescreen.ui \
-	musiclayouta.ui
-RESOURCES += mcar.qrc
-INCLUDEPATH += /usr/include/taglib /usr/include/phonon
+	musiclayouta.ui \
+	playlistscreen.ui \
+onscreenkeyboard.ui
+RESOURCES += ../resources/mcar.qrc
+INCLUDEPATH += /usr/include/taglib \
+	/usr/include/phonon
 LIBS += -ltag
