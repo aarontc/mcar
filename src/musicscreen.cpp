@@ -1,15 +1,13 @@
 #include "musicscreen.h"
 
-MusicScreen::MusicScreen(QWidget *parent) :
-	QWidget(parent)
+MusicScreen::MusicScreen(MusicPlayer * musicplayer, QWidget *parent) :
+	QWidget(parent), m_musicplayer(musicplayer)
 {
 
 	setMinimumSize(QSize(800,480));
 	setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
 
 
-	m_musicplayer = new MusicPlayer();
-	m_musicplayer->start();
 
 	m_musiclayout = new MusicLayoutA(m_musicplayer, this);
 	connect(m_musicplayer, SIGNAL(tick(qint64)), m_musiclayout, SLOT(tick(qint64)));
@@ -29,7 +27,7 @@ MusicScreen::MusicScreen(QWidget *parent) :
 
 MusicScreen::~MusicScreen()
 {
-	delete m_musicplayer;
+
 }
 
 void MusicScreen::setMode(QString mode) {

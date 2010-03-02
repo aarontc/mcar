@@ -8,7 +8,7 @@
 class MusicScreen : public QWidget {
 	Q_OBJECT
 public:
-	MusicScreen(QWidget *parent = 0);
+	MusicScreen(MusicPlayer * musicplayer, QWidget *parent = 0);
 	~MusicScreen();
 
 signals:

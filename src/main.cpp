@@ -3,6 +3,7 @@
 #include "settings.h"
 #include "database.h"
 #include "libraryscanner.h"
+#include "musicplayer.h"
 
 int main(int argc, char *argv[]) {
 	QApplication app(argc, argv);
@@ -23,7 +24,10 @@ int main(int argc, char *argv[]) {
 	LibraryScanner libscanner(db);
 	libscanner.start();
 
-	Screen w;
+	MusicPlayer mp;
+	mp.start();
+
+	Screen w(&s, &mp);
 	//w.showFullScreen();
 	w.showNormal();
 

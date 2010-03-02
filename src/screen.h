@@ -5,6 +5,8 @@
 #include <QVector>
 #include <QDebug>
 
+#include "musicplayer.h"
+#include "settings.h"
 
 #include "homescreen.h"
 #include "musicscreen.h"
@@ -15,7 +17,7 @@ class Screen : public QWidget {
 	Q_OBJECT
 
 public:
-	Screen(QWidget *parent = 0);
+	Screen(Settings * s, MusicPlayer * m, QWidget *parent = 0);
 	~Screen();
 
 public slots:
@@ -24,6 +26,8 @@ public slots:
 
 
 private:
+	MusicPlayer * m_musicplayer;
+	Settings * m_settings;
 	HomeScreen * m_homescreen;
 	MusicScreen * m_musicscreen;
 	PlaylistScreen * m_playlistscreen;

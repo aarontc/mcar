@@ -1,9 +1,10 @@
 #include "playlistscreen.h"
 #include "ui_playlistscreen.h"
 
-PlaylistScreen::PlaylistScreen(QWidget *parent) :
+PlaylistScreen::PlaylistScreen(Playlist * playlist, QWidget *parent) :
 	QWidget(parent),
-	m_ui(new Ui::PlaylistScreen)
+	m_ui(new Ui::PlaylistScreen),
+	m_playlist(playlist)
 {
 	m_ui->setupUi(this);
 }

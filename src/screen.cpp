@@ -1,7 +1,8 @@
 #include "screen.h"
 
-Screen::Screen(QWidget *parent) :
-		QWidget(parent), m_homescreen(0), m_musicscreen(0), m_playlistscreen(0)
+Screen::Screen(Settings * s, MusicPlayer * m, QWidget *parent) :
+		QWidget(parent), m_homescreen(0), m_musicscreen(0), m_playlistscreen(0),
+		m_settings(s), m_musicplayer(m)
 {
 	m_homescreen = new HomeScreen(this);
 	connect(m_homescreen, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));
@@ -52,7 +53,7 @@ void Screen::setMode(QString modereq) {
 	} else 	if (mode == "Music") {
 
 		if ( m_musicscreen == 0 ) {
-			m_musicscreen = new MusicScreen(this);
+			m_musicscreen = new MusicScreen(m_musicplayer, this);
 			connect(m_musicscreen, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));
 			m_musicscreen->move(0, 0);
 		}
@@ -63,7 +64,7 @@ void Screen::setMode(QString modereq) {
 	} else if (mode == "Playlist") {
 
 		if (m_playlistscreen == 0) {
-			m_playlistscreen = new PlaylistScreen(this);
+			m_playlistscreen = new PlaylistScreen(&(m_musicplayer->playlist), this);
 			connect(m_playlistscreen, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));
 			m_playlistscreen->move(0, 0);
 		}
