@@ -4,6 +4,7 @@
 #include <QtGui/QWidget>
 
 #include "playlist.h"
+#include "song.h"
 
 namespace Ui {
 	class PlaylistScreen;
@@ -12,7 +13,7 @@ namespace Ui {
 class PlaylistScreen : public QWidget {
 	Q_OBJECT
 public:
-	PlaylistScreen(Playlist * playlist, QWidget *parent = 0);
+	PlaylistScreen(Playlist<Song *> * playlist, QWidget *parent = 0);
 	~PlaylistScreen();
 
 signals:
@@ -23,7 +24,7 @@ protected:
 
 private:
 	Ui::PlaylistScreen *m_ui;
-	Playlist * m_playlist;
+	Playlist<Song *> * m_playlist;
 
 private slots:
 	void on_btnBack_clicked();

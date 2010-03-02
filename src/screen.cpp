@@ -1,8 +1,9 @@
 #include "screen.h"
 
 Screen::Screen(Settings * s, MusicPlayer * m, QWidget *parent) :
-		QWidget(parent), m_homescreen(0), m_musicscreen(0), m_playlistscreen(0),
-		m_settings(s), m_musicplayer(m)
+		QWidget(parent),
+		m_settings(s), m_musicplayer(m),
+		m_homescreen(0), m_musicscreen(0), m_playlistscreen(0)
 {
 	m_homescreen = new HomeScreen(this);
 	connect(m_homescreen, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));

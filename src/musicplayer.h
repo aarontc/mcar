@@ -4,6 +4,7 @@
 #include <QThread>
 #include <QObject>
 #include "playlist.h"
+#include "song.h"
 
 // phonon
 #include <audiooutput.h>
@@ -16,7 +17,7 @@ public:
 	MusicPlayer();
 	~MusicPlayer();
 
-	Playlist playlist;
+	Playlist<Song *> playlist;
 
 	enum State {
 		Initializing,
