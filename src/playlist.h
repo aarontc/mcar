@@ -5,22 +5,26 @@
 #include <QVector>
 
 
-template <class T>
+template <class X>
 class Playlist : public QObject {
+	Q_OBJECT
+
 public:
 	Playlist();
 
-	void addItem(T item);
+	void addItem(X item);
 	void clear();
-	T getCurrentItem(int offset=0);
-	T getNextItem();
-	T getPreviousItem();
+	X getCurrentItem(int offset=0);
+	X getNextItem();
+	X getPreviousItem();
 	void restart();
 	void shuffle();
 
+signals:
+	void changed();
 
 private:
-	QVector<T> m_playlist;
+	QVector<X> m_playlist;
 	int m_currentitem; // item in the playlist we are currently playing
 
 };
