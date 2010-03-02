@@ -26,8 +26,9 @@ public slots:
 
 
 private:
-	MusicPlayer * m_musicplayer;
 	Settings * m_settings;
+	MusicPlayer * m_musicplayer;
+
 	HomeScreen * m_homescreen;
 	MusicScreen * m_musicscreen;
 	PlaylistScreen * m_playlistscreen;
