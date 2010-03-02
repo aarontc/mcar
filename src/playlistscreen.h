@@ -4,6 +4,7 @@
 #include <QtGui/QWidget>
 
 #include "playlist.h"
+#include <QVector>
 
 namespace Ui {
 	class PlaylistScreen;
@@ -11,6 +12,7 @@ namespace Ui {
 
 class PlaylistScreen : public QWidget {
 	Q_OBJECT
+
 public:
 	PlaylistScreen(Playlist * playlist, QWidget *parent = 0);
 	~PlaylistScreen();
@@ -27,6 +29,8 @@ private:
 
 private slots:
 	void on_btnBack_clicked();
+	void playlistChanged();
+
 };
 
 #endif // PLAYLISTSCREEN_H

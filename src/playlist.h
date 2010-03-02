@@ -6,23 +6,31 @@
 
 #include "song.h"
 
-class Playlist : public QObject
-{
+class Playlist : public QObject {
+	Q_OBJECT
+
 public:
 	Playlist();
 
 	void addItem(Song * item);
-	void clear();
+	QVector<Song *> asVector();
 	Song * getCurrentItem(int offset=0);
 	Song * getNextItem();
 	Song * getPreviousItem();
+
+signals:
+	void changed();
+
+public slots:
+	void clear();
 	void restart();
 	void shuffle();
-
+	void setRepeat(bool repeat);
 
 private:
-	QVector<Song *> m_playlist;
 	int m_currentitem; // item in the playlist we are currently playing
+	QVector<Song *> m_playlist;
+	bool m_repeat;
 
 };
 

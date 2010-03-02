@@ -1,19 +1,20 @@
 #include "playlist.h"
 
 Playlist::Playlist()
-		: m_currentitem(-1)
+		: m_currentitem(-1),
+		m_repeat(false)
 {
 }
 
-void Playlist::addItem(Song *item)
-{
+void Playlist::addItem(Song *item) {
 	m_playlist.append(item);
+	emit changed();
 }
 
-void Playlist::clear()
-{
+void Playlist::clear() {
 	m_playlist.clear();
 	m_currentitem = -1;
+	emit changed();
 }
 
 Song * Playlist::getCurrentItem(int offset) {
@@ -30,26 +31,36 @@ Song * Playlist::getCurrentItem(int offset) {
 
 // Returns the next song in the playlist and increments our currentitem count
 Song * Playlist::getNextItem() {
+	Song * result(0);
+
 	if (m_currentitem + 1 >= m_playlist.size()) {
 		restart();
-		return 0;
 	} else {
-		return m_playlist.at(++m_currentitem);
+		result = m_playlist.at(++m_currentitem);
+		emit changed();
 	}
+
+	return result;
 }
 
 Song * Playlist::getPreviousItem() {
+	Song * result(0);
+
 	if (m_currentitem - 1 < 0) {
 		restart();
-		return 0;
 	} else {
-		return m_playlist.at(--m_currentitem);
+		result = m_playlist.at(--m_currentitem);
+		emit changed();
 	}
+
+	return result;
 }
 
 void Playlist::restart() {
 	m_currentitem = -1;
+	emit changed();
 }
+
 
 void Playlist::shuffle() {
 	QVector<Song *> templist;
@@ -66,4 +77,12 @@ void Playlist::shuffle() {
 
 	clear();
 	m_playlist = templist;
+}
+
+QVector<Song *> Playlist::asVector() {
+	return m_playlist;
+}
+
+void Playlist::setRepeat(bool r) {
+	m_repeat = r;
 }

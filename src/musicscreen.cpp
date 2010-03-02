@@ -20,9 +20,6 @@ MusicScreen::MusicScreen(MusicPlayer * musicplayer, QWidget *parent) :
 	m_musiclayout->show();
 	m_musiclayout->raise();
 
-	m_musicplayer->playlist.addItem(new Song(109));
-	m_musicplayer->playlist.addItem(new Song(108));
-
 }
 
 MusicScreen::~MusicScreen()
