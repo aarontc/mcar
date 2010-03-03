@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QVector>
+#include <QMutex>
+#include <QMutexLocker>
 
 #include "song.h"
 
@@ -31,6 +33,7 @@ private:
 	int m_currentitem; // item in the playlist we are currently playing
 	QVector<Song *> m_playlist;
 	bool m_repeat;
+	QMutex m_mutex;
 
 };
 

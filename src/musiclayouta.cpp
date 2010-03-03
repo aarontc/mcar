@@ -108,29 +108,27 @@ void MusicLayoutA::updateUI(qint64 time) {
 	}
 
 
-//	if (m_musicplayer->playlist.getCurrentItem(1) != n1) {
-		n1 = m_musicplayer->playlist.getCurrentItem(1);
-		n2 = m_musicplayer->playlist.getCurrentItem(2);
-		n3 = m_musicplayer->playlist.getCurrentItem(3);
+	n1 = m_musicplayer->playlist.getCurrentItem(1);
+	n2 = m_musicplayer->playlist.getCurrentItem(2);
+	n3 = m_musicplayer->playlist.getCurrentItem(3);
 
-		if (n1)
-			m_ui->lblUpcoming0->setText(QString(n1->artist() + " - " + n1->title()));
-		else
-			m_ui->lblUpcoming0->setText("");
+	if (n1)
+		m_ui->lblUpcoming0->setText(QString(n1->artist() + " - " + n1->title()));
+	else
+		m_ui->lblUpcoming0->setText("");
 
-		if (n2)
-			m_ui->lblUpcoming1->setText(QString(n2->artist() + " - " + n2->title()));
-		else
-			m_ui->lblUpcoming1->setText("");
-
-
-		if (n3)
-			m_ui->lblUpcoming2->setText(QString(n3->artist() + " - " + n3->title()));
-		else
-			m_ui->lblUpcoming2->setText("");
+	if (n2)
+		m_ui->lblUpcoming1->setText(QString(n2->artist() + " - " + n2->title()));
+	else
+		m_ui->lblUpcoming1->setText("");
 
 
-//	}
+	if (n3)
+		m_ui->lblUpcoming2->setText(QString(n3->artist() + " - " + n3->title()));
+	else
+		m_ui->lblUpcoming2->setText("");
+
+
 }
 
 void MusicLayoutA::tick(qint64 time) {
