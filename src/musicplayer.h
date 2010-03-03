@@ -17,7 +17,7 @@ public:
 	MusicPlayer();
 	~MusicPlayer();
 
-	Playlist<Song *> playlist;
+	Playlist playlist;
 
 	enum State {
 		Initializing,

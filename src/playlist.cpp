@@ -9,19 +9,14 @@ Playlist::Playlist()
 }
 
 void Playlist::addItem(Song *item) {
-	qDebug() << "Playlist::addItem: entered";
 	QMutexLocker lock(&m_mutex);
-	qDebug() << "Playlist::addItem: locked";
-
 	m_playlist.append(item);
+	lock.mutex()->unlock();
 	emit changed();
 }
 
 void Playlist::clear() {
-	qDebug() << "Playlist::clear: entered";
 	QMutexLocker lock(&m_mutex);
-	qDebug() << "Playlist::clear: locked";
-
 	m_playlist.clear();
 	m_currentitem = -1;
 	lock.mutex()->unlock();
@@ -29,27 +24,24 @@ void Playlist::clear() {
 }
 
 Song * Playlist::getCurrentItem(int offset) {
-	qDebug() << "Playlist::getCurrentItem(" << offset << "): entered";
+	QMutexLocker lock(&m_mutex);
 	Song * result(0);
-	//QMutexLocker lock(&m_mutex);
-	qDebug() << "Playlist::getCurrentItem(" << offset << "): locked";
-
 	if ((m_currentitem + offset >= 0) && (m_currentitem + offset < m_playlist.size())) {
 		result = m_playlist.at(m_currentitem + offset);
 	}
-
 	return result;
 }
 
 // Returns the next song in the playlist and increments our currentitem count
 Song * Playlist::getNextItem() {
-	Song * result(0);
 	QMutexLocker lock(&m_mutex);
+	Song * result(0);
 
 	if (m_currentitem + 1 >= m_playlist.size()) {
-		restart();
+		m_currentitem = -1;//restart();
 	} else {
 		result = m_playlist.at(++m_currentitem);
+		lock.mutex()->unlock();
 		emit changed();
 	}
 
@@ -57,13 +49,14 @@ Song * Playlist::getNextItem() {
 }
 
 Song * Playlist::getPreviousItem() {
-	Song * result(0);
 	QMutexLocker lock(&m_mutex);
+	Song * result(0);
 
 	if (m_currentitem - 1 < 0) {
-		restart();
+		m_currentitem = -1;//restart();
 	} else {
 		result = m_playlist.at(--m_currentitem);
+		lock.mutex()->unlock();
 		emit changed();
 	}
 
@@ -72,15 +65,15 @@ Song * Playlist::getPreviousItem() {
 
 void Playlist::restart() {
 	QMutexLocker lock(&m_mutex);
-
 	m_currentitem = -1;
+	lock.mutex()->unlock();
 	emit changed();
 }
 
 
 void Playlist::shuffle() {
-	QVector<Song *> templist;
 	QMutexLocker lock(&m_mutex);
+	QVector<Song *> templist;
 
 	int x = m_playlist.size();
 
@@ -93,18 +86,17 @@ void Playlist::shuffle() {
 		x = m_playlist.size();
 	}
 
-	clear();
+	m_currentitem = -1;
 	m_playlist = templist;
+	lock.mutex()->unlock();
+	emit changed();
+
 }
 
 QVector<Song *> Playlist::asVector() {
-	QMutexLocker lock(&m_mutex);
-
 	return m_playlist;
 }
 
 void Playlist::setRepeat(bool r) {
-	QMutexLocker lock(&m_mutex);
-
 	m_repeat = r;
 }

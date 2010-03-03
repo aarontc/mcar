@@ -2,7 +2,7 @@
 #include "ui_playlistscreen.h"
 
 
-PlaylistScreen::PlaylistScreen(Playlist<Song *> * playlist, QWidget *parent) :
+PlaylistScreen::PlaylistScreen(Playlist * playlist, QWidget *parent) :
 	QWidget(parent),
 	m_ui(new Ui::PlaylistScreen),
 	m_playlist(playlist)
@@ -48,7 +48,7 @@ void PlaylistScreen::playlistChanged() {
 	// Future: instead of clearing, work through table looking for differences. maybe only the current item changed
 
 	m_ui->tblSongs->clearContents();
-//	m_ui->tblSongs->setRowCount(0);
+	m_ui->tblSongs->setRowCount(0);
 	int row;
 	for (row = 0; row < p.count(); ++row) {
 		m_ui->tblSongs->setRowCount(row+1);
