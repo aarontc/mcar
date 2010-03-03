@@ -33,10 +33,6 @@ void PlaylistScreen::changeEvent(QEvent *e)
 
 void PlaylistScreen::on_btnBack_clicked() {
 	emit requestMode(QString("Previous"));
-
-	m_playlist->addItem(new Song(6834));
-	m_playlist->addItem(new Song(6835));
-
 }
 
 void PlaylistScreen::playlistChanged() {
@@ -58,6 +54,8 @@ void PlaylistScreen::playlistChanged() {
 		m_ui->tblSongs->setItem(row, 1, newitem);
 		newitem = new QTableWidgetItem(p.at(row)->title());
 		m_ui->tblSongs->setItem(row, 2, newitem);
+		if (row > 50)
+			break;
 	}
 	m_ui->tblSongs->resizeColumnsToContents();
 

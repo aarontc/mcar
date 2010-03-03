@@ -58,26 +58,28 @@ void MusicLayoutA::updateUI(qint64 time) {
 		m_ui->btnPlayPause->setDefaultAction(&m_action_play);
 		break;
 	case MusicPlayer::Paused:
-		m_ui->lblAlbum->setText(s->album());
+		m_ui->lblAlbum->setText((s ? s->album() : ""));
 		m_ui->lblAlbumArt->setPixmap(QPixmap(QString(":/images/resources/images/CD_icon.svg")));
-		m_ui->lblArtist->setText(s->artist());
+		m_ui->lblArtist->setText((s ? s->artist() : ""));
 		m_ui->lblBitrate->setText("Bitrate:");
 		m_ui->lblFormat->setText("Format:");
-		m_ui->lblSongTitle->setText(s->title());
+		m_ui->lblSongTitle->setText((s ? s->title() : "<No song>"));
 		if (time>0)
 			m_ui->lcdTime->display(displayTime.toString("m:ss"));
 
 		m_ui->btnPlayPause->setDefaultAction(&m_action_play);
 		break;
 	case MusicPlayer::Playing:
-		m_ui->lblAlbum->setText(s->album());
+		m_ui->lblAlbum->setText((s ? s->album() : ""));
 		m_ui->lblAlbumArt->setPixmap(QPixmap(QString(":/images/resources/images/CD_icon.svg")));
-		m_ui->lblArtist->setText(s->artist());
+		m_ui->lblArtist->setText((s ? s->artist() : ""));
 		m_ui->lblBitrate->setText("Bitrate:");
 		m_ui->lblFormat->setText("Format:");
-		m_ui->lblSongTitle->setText(s->title());
+		m_ui->lblSongTitle->setText((s ? s->title() : "<No song>"));
 		if (time>0)
 			m_ui->lcdTime->display(displayTime.toString("m:ss"));
+
+
 
 		m_ui->btnPlayPause->setDefaultAction(&m_action_pause);
 		break;

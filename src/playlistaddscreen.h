@@ -23,6 +23,8 @@ public:
 signals:
 	void requestMode(QString mode);
 
+	void addArtistID(quint64 artistID);
+
 protected:
 	void changeEvent(QEvent *e);
 
@@ -35,7 +37,8 @@ private:
 	QVector<quint64> m_artistIDs, m_albumIDs, m_songIDs;
 
 private slots:
-	void on_txtSearch_textChanged(QString );
+	void on_btnAddAll_clicked();
+ void on_txtSearch_textChanged(QString );
 	void on_btnBack_clicked();
 	void vk_pressed(char);
 };

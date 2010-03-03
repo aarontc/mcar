@@ -15,6 +15,7 @@ public:
 	Playlist();
 
 	void addItem(Song * item);
+	void addVector(QVector<Song *> v);
 	QVector<Song *> asVector();
 	Song * getCurrentItem(int offset=0);
 	Song * getNextItem();

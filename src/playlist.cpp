@@ -15,6 +15,14 @@ void Playlist::addItem(Song *item) {
 	emit changed();
 }
 
+void Playlist::addVector(QVector<Song *> item) {
+	QMutexLocker lock(&m_mutex);
+	m_playlist += item;
+	lock.mutex()->unlock();
+	emit changed();
+}
+
+
 void Playlist::clear() {
 	QMutexLocker lock(&m_mutex);
 	m_playlist.clear();
@@ -41,8 +49,6 @@ Song * Playlist::getNextItem() {
 		m_currentitem = -1;//restart();
 	} else {
 		result = m_playlist.at(++m_currentitem);
-		lock.mutex()->unlock();
-		emit changed();
 	}
 
 	return result;
@@ -56,8 +62,6 @@ Song * Playlist::getPreviousItem() {
 		m_currentitem = -1;//restart();
 	} else {
 		result = m_playlist.at(--m_currentitem);
-		lock.mutex()->unlock();
-		emit changed();
 	}
 
 	return result;
@@ -94,7 +98,11 @@ void Playlist::shuffle() {
 }
 
 QVector<Song *> Playlist::asVector() {
-	return m_playlist;
+	QVector<Song *> plcopy;
+	QMutexLocker lock(&m_mutex);
+	plcopy = m_playlist;
+	lock.mutex()->unlock();
+	return plcopy;
 }
 
 void Playlist::setRepeat(bool r) {
