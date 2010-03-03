@@ -6,6 +6,7 @@
 #include <QFile>
 
 
+
 class Settings : public QObject {
 
 public:

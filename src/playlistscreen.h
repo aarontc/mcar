@@ -28,7 +28,8 @@ private:
 	Playlist * m_playlist;
 
 private slots:
-	void on_btnBack_clicked();
+	void on_btnAddArtist_clicked();
+ void on_btnBack_clicked();
 	void playlistChanged();
 
 };

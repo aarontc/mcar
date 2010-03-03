@@ -62,3 +62,7 @@ void PlaylistScreen::playlistChanged() {
 	m_ui->tblSongs->resizeColumnsToContents();
 
 }
+
+void PlaylistScreen::on_btnAddArtist_clicked() {
+	emit requestMode(QString("PlaylistAddArtist"));
+}

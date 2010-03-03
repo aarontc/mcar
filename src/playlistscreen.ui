@@ -62,16 +62,6 @@
     </property>
    </column>
   </widget>
-  <widget class="OnscreenKeyboard" name="kbdOnScreen" native="true">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>240</y>
-     <width>400</width>
-     <height>146</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QToolButton" name="btnShuffle">
    <property name="geometry">
     <rect>
@@ -249,16 +239,6 @@
    </property>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>OnscreenKeyboard</class>
-   <extends>QWidget</extends>
-   <header>onscreenkeyboard.h</header>
-   <slots>
-    <signal>keypress(char)</signal>
-   </slots>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="../resources/mcar.qrc"/>
  </resources>

@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	MusicPlayer mp;
 	mp.start();
 
-	Screen w(&s, &mp);
+	Screen w(db, &s, &mp);
 	//w.showFullScreen();
 	w.showNormal();
 

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlaylistAddScreen</class>
+ <widget class="QWidget" name="PlaylistAddScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="OnscreenKeyboard" name="kbdOnScreen" native="true">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>100</y>
+     <width>401</width>
+     <height>147</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblWidgetTitle">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>801</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>36</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>mcar - Playlist Add &lt;type&gt;</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnBack">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>61</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Home</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/images/back-small.svg</normaloff>:/images/back-small.svg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>96</width>
+     <height>96</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblSearch">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>70</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Search:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtSearch">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>70</y>
+     <width>481</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnClear">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>60</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/images/trashcan_empty-2.1.svg</normaloff>:/images/trashcan_empty-2.1.svg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnAddAll">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>370</y>
+     <width>101</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>All</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/images/edit_add_nobg.svg</normaloff>:/images/edit_add_nobg.svg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>96</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="btnAddSelection">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>260</y>
+     <width>101</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Selection</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/images/edit_add_nobg.svg</normaloff>:/images/edit_add_nobg.svg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>96</width>
+     <height>64</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tblResults">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>671</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <column>
+    <property name="text">
+     <string>Artist</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Album</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Title</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>OnscreenKeyboard</class>
+   <extends>QWidget</extends>
+   <header>onscreenkeyboard.h</header>
+   <slots>
+    <signal>keypress(char)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>kbdOnScreen</sender>
+   <signal>keypress(char)</signal>
+   <receiver>PlaylistAddScreen</receiver>
+   <slot>vk_pressed(char)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnClear</sender>
+   <signal>clicked()</signal>
+   <receiver>txtSearch</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>680</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>410</x>
+     <y>81</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>vk_pressed(char)</slot>
+ </slots>
+</ui>

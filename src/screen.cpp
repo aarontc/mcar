@@ -1,9 +1,17 @@
 #include "screen.h"
 
-Screen::Screen(Settings * s, MusicPlayer * m, QWidget *parent) :
+Screen::Screen(QSqlDatabase & db, Settings * s, MusicPlayer * m, QWidget *parent) :
 		QWidget(parent),
-		m_settings(s), m_musicplayer(m),
-		m_homescreen(0), m_musicscreen(0), m_playlistscreen(0)
+		m_database(db),
+		m_settings(s),
+		m_musicplayer(m),
+		m_homescreen(0),
+		m_musicscreen(0),
+		m_playlistscreen(0),
+		m_playlistaddscreen_artist(0),
+		m_playlistaddscreen_album(0),
+		m_playlistaddscreen_other(0)
+
 {
 	m_homescreen = new HomeScreen(this);
 	connect(m_homescreen, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));
@@ -58,8 +66,10 @@ void Screen::setMode(QString modereq) {
 			connect(m_musicscreen, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));
 			m_musicscreen->move(0, 0);
 		}
+
 		if (m_homescreen) m_homescreen->hide();
 		if (m_playlistscreen) m_playlistscreen->hide();
+		if (m_playlistaddscreen_artist) m_playlistaddscreen_artist->hide();
 		m_musicscreen->show();
 
 	} else if (mode == "Playlist") {
@@ -72,7 +82,21 @@ void Screen::setMode(QString modereq) {
 
 		if (m_homescreen) m_homescreen->hide();
 		if (m_musicscreen) m_musicscreen->hide();
+		if (m_playlistaddscreen_artist) m_playlistaddscreen_artist->hide();
 		m_playlistscreen->show();
+
+	} else if (mode == "PlaylistAddArtist") {
+
+		if (m_playlistaddscreen_artist == 0) {
+			m_playlistaddscreen_artist = new PlaylistAddScreen(m_database, &(m_musicplayer->playlist), "Artist", this);
+			connect(m_playlistaddscreen_artist, SIGNAL(requestMode(QString)), this, SLOT(setMode(QString)));
+			m_playlistaddscreen_artist->move(0, 0);
+		}
+
+		if (m_homescreen) m_homescreen->hide();
+		if (m_musicscreen) m_musicscreen->hide();
+		if (m_playlistscreen) m_playlistscreen->hide();
+		m_playlistaddscreen_artist->show();
 
 	} else if (mode == "Settings" ) {
 
