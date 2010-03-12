@@ -17,6 +17,7 @@ public:
 	bool loadXMLFile(QString fileName = "/etc/mcar/settings.xml");
 	QString getStringValue(QString value_name);
 	QString getAttributeValue(QString value_name, QString attribute_name);
+	QString getStyleSheet(QString filename = "/etc/mcar/style.css");
 
 	private:
 	QDomDocument * m_domdoc;

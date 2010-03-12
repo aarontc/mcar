@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
 	app.setApplicationName("mcar");
 	app.setApplicationVersion("0.01");
 
+
 	Settings s;
 	QSqlDatabase db(db_createConnection
 			( s.getAttributeValue("/database", "type"),
@@ -20,6 +21,7 @@ int main(int argc, char *argv[]) {
 			  s.getStringValue("/database/options")
 			  ));
 
+	app.setStyleSheet(s.getStyleSheet());
 
 	LibraryScanner libscanner(db);
 	libscanner.start();
@@ -28,7 +30,6 @@ int main(int argc, char *argv[]) {
 	mp.start();
 
 	Screen w(db, &s, &mp);
-	//w.showFullScreen();
 	w.showNormal();
 
 	return app.exec();

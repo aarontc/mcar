@@ -19,9 +19,6 @@ Screen::Screen(QSqlDatabase & db, Settings * s, MusicPlayer * m, QWidget *parent
 	m_homescreen->move(0, 0);
 	m_homescreen->show();
 
-	QString style("background: #AAAAAA;");
-
-	this->setStyleSheet(style);
 }
 
 Screen::~Screen() {

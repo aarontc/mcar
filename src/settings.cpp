@@ -70,3 +70,13 @@ QString Settings::getAttributeValue(QString value_name, QString attribute_name) 
 }
 
 
+QString Settings::getStyleSheet(QString filename) {
+	QFile file(filename);
+	if (!file.open(QIODevice::ReadOnly)) {
+		qDebug() << "Could not open stylesheet";
+	} else {
+		QTextStream s(&file);
+		return s.readAll();
+	}
+	return QString("");
+}

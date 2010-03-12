@@ -1,0 +1,15 @@
+QWidget {
+	background-color: black;
+	color: white;
+
+}
+
+QToolButton {
+	background-color: #000078;
+	border-radius: 15px;
+}
+
+QScrollBar:veritcal {
+	width: 300px;
+}
+
