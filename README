@@ -1,0 +1,5 @@
+Mcar is designed to be a complete in-dash entertainment, navigation, and monitoring system. It's a work in progress, but I feel there is a lot of potential for this project. There are few competitors in this arena, and a free, cross-platform system like this should make entry into the automotive entertainment market much easier for the little guys.
+
+This project is written entirely in C++ using the Qt open-source toolkit.
+
+You can access <a href="http://github.com/aarontc/mcar">the source</a> at GitHub.
