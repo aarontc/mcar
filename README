@@ -2,4 +2,5 @@ Mcar is designed to be a complete in-dash entertainment, navigation, and monitor
 
 This project is written entirely in C++ using the Qt open-source toolkit.
 
-You can access <a href="http://github.com/aarontc/mcar">the source</a> at GitHub.
+You can access the source at GitHub: http://github.com/aarontc/mcar
+Project home page: http://www.aarontc.com/projects/mcar
